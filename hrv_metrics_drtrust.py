@@ -3,6 +3,8 @@ import numpy as np
 import csv
 from ecg_metrics import *
 
+DR_TRUST_INTERVAL=30 #s
+
 with open(sys.argv[1]) as file:
     data = csv.reader(file)
     for row in data:
@@ -11,7 +13,7 @@ with open(sys.argv[1]) as file:
 
 def get_bpm_metric(voltage_string):
     voltage_data = np.array(list(map(int, voltage_string)))
-    sample_rate = len(voltage_data) / 30
+    sample_rate = len(voltage_data) / DR_TRUST_INTERVAL
     # Processes data. Window size is sensitivity towards peaks. Low window size implies more peaks detected.
     working_data, measures = hp.process(voltage_data, sample_rate, windowsize=0.6)
 
