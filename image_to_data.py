@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import os
 
 def line_detector(input_image):
     test_image = cv2.imread(sys.argv[1], 1)
@@ -31,7 +32,7 @@ def line_detector(input_image):
 
     output_array = np.array(list(map(int, output_array)))
 
-    output_array.tofile("detected_line.csv", sep=",")
+    output_array.tofile(os.path.splitext(os.path.basename(code_path))[0], sep=",")
 
     # cv2.imshow("mask",mask)
 
