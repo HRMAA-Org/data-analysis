@@ -48,7 +48,7 @@ def pdf_to_concat_image():
         os.remove(image)
 
     output_image = cv2.hconcat(opened_image_list)
-    cv2.imwrite("concatenated_ecg.jpg", output_image)
+    cv2.imwrite(os.path.splitext(os.path.basename(code_path))[0]+".jpg", output_image)
 
 
 pdf_to_concat_image()
