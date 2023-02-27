@@ -3,7 +3,7 @@ import numpy as np
 import csv
 from ecg_metrics import *
 
-with open("detected_line.csv") as file:
+with open(sys.argv[1]) as file:
     data = csv.reader(file)
     for row in data:
         voltage_string = row
