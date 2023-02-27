@@ -5,7 +5,7 @@ from ecg_metrics_new import *
 
 csvdata = []
 
-with open("arduino1.csv") as file:
+with open(sys.argv[1]) as file:
     data = csv.reader(file)
     for row in data:
         csvdata.append(row)
