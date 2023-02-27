@@ -32,7 +32,7 @@ def line_detector(input_image):
 
     output_array = np.array(list(map(int, output_array)))
 
-    output_array.tofile(os.path.splitext(os.path.basename(code_path))[0], sep=",")
+    output_array.tofile(os.path.splitext(os.path.basename(code_path))[0]+".csv", sep=",")
 
     # cv2.imshow("mask",mask)
 
