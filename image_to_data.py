@@ -1,10 +1,8 @@
 import cv2
 import numpy as np
 
-test_image = cv2.imread("concatenated_ecg.jpg", 1)
-
-
 def line_detector(input_image):
+    test_image = cv2.imread(sys.argv[1], 1)
     hsv_image = cv2.cvtColor(input_image, cv2.COLOR_BGR2HSV)
 
     lower_bound = np.array([0, 0, 0], dtype="uint8")
