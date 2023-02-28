@@ -6,8 +6,12 @@ from metrics_formulae_improved import *
 
 csvdata = []
 
-with open(sys.argv[1]) as file:
+with open(sys.argv[1]) as file: #voltagestring
     data = csv.reader(file)
+    for row in data:
+        csvdata.append(row)
+
+with open(sys.argv[2]) as file: #timestring
     for row in data:
         csvdata.append(row)
 
@@ -39,4 +43,4 @@ def get_bpm_metric(voltage_string, time_string):
     ]
 
 
-print(get_bpm_metric(csvdata[1], csvdata[0]))
+print(get_bpm_metric(csvdata[0], csvdata[1]))

@@ -1,7 +1,8 @@
 import heartpy as hp
 import numpy as np
 import csv
-from ecg_metrics import *
+import sys
+from metrics_formulae import *
 
 DR_TRUST_INTERVAL=30 #s
 
