@@ -18,14 +18,12 @@ def get_bpm_metric(voltage_string, time_string):
     time_data = np.array(time_string, dtype=int)
 
     # my_sample_rate=len(time_data)*1000/(time_data[-1]-time_data[0])
-    # print(my_sample_rate)
     # Estimates sample rate using time data
     sample_rate = hp.get_samplerate_mstimer(time_data)
 
     # Processes data. Window size is sensitivity towards peaks. Low window size implies more peaks detected.
-    # clean_data= hp.remove_baseline_wander(voltage_data, sample_rate)
-    working_data, measures = hp.process(voltage_data, sample_rate, windowsize=0.6)
-    print(working_data)
+    clean_data= hp.remove_baseline_wander(voltage_data, sample_rate)
+    working_data, measures = hp.process(clean_data, sample_rate, windowsize=0.6)
 
     hp.plotter(working_data, measures, show=False).savefig("analysis_arduino.jpg")
 
